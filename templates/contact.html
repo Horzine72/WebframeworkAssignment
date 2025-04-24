@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Hyperion Logistics</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+
+</head>
+<body>
+
+
+<nav>
+    <div class="nav-logo">Hyperion Logistics</div>
+    <div class="nav-links">
+        <a href="/polls/main/">Home</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+        <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+        <a href="{% url 'view_invoices' %}">Invoices</a>
+        <a href="/polls/tracking/">Tracking</a>
+        <a href="/polls/contact/">Contact Us</a>
+        <a href="/polls/help/">Help</a>
+    </div>
+</nav>
+
+
+
+
+
+<div class="header">
+    <div>
+        <h1>Welcome to Hyperion Logistics</h1>
+        <p>Efficient, Reliable, On-Time Logistics Solutions</p>
+    </div>
+    {% load static %}
+    <img src="{% static 'images/HyperionGold.png' %}" alt="Hyperion Logo" class="logo">
+</div>
+
+
+<div class="container">
+    <h1>Contact Us</h1>
+    <p>Have questions? We'd love to hear from you!</p>
+    <form method="post" action="/polls/contact_submit/">
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Enter your message"></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+<!--  contact doesnt lead to anything   -->
+
+
+
+<footer>
+    <p>&copy; 2025 Hyperion Logistics. All rights reserved.</p>
+</footer>
+</body>
+</html>

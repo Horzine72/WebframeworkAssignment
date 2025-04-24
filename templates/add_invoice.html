@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Invoice</title>
+</head>
+<body>
+
+
+<!--FOR ONLY STAFF/SUPERUSER -->
+
+<h1>Add Invoice</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <!-- refers to forms.py -->
+
+
+  <button type="submit">Save Invoice</button>
+</form>
+
+
+<a href="/polls/invoices/manage/">Back to Manage Invoices</a>
+
+
+</body>
+</html>

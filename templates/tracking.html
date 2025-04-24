@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Hyperion Logistics</title>
+    <link rel="stylesheet" href="{% static 'css/tracking.css' %}">
+
+
+
+</head>
+<body>
+
+
+<nav>
+    <div class="nav-logo">Hyperion Logistics</div>
+    <div class="nav-links">
+        <a href="/polls/main/">Home</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+        <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+        <a href="{% url 'view_invoices' %}">Invoices</a>
+        <a href="/polls/tracking/">Tracking</a>
+        <a href="/polls/contact/">Contact Us</a>
+        <a href="/polls/help/">Help</a>
+    </div>
+</nav>
+
+
+
+
+
+<div class="header">
+    <div>
+        <h1>Welcome to Hyperion Logistics</h1>
+        <p>Efficient, Reliable, On-Time Logistics Solutions</p>
+    </div>
+    {% load static %}
+    <img src="{% static 'images/HyperionGold.png' %}" alt="Hyperion Logo" class="logo">
+</div>
+
+
+
+<footer>
+    <p>&copy; 2025 Hyperion Logistics. All rights reserved.</p>
+</footer>
+</body>
+</html>

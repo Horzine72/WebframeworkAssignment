@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Invoices</title>
+</head>
+<body>
+<h1>Invoice Management</h1>
+
+<!-- ONLY SHOWS FOR ADMIN/STAFF -->
+{% if user.is_staff or user.is_superuser %}
+<a href="{% url 'add_invoice' %}" style="margin-bottom: 20px; display: inline-block;">+ Add New Invoice</a>
+{% endif %}
+
+
+{% if invoices %}
+<table border="1">
+  <thead>
+  <tr>
+    <th>Invoice ID</th>
+    <th>Customer ID</th>
+    <th>Amount</th>
+    <th>Parcel Details</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for invoice in invoices %}
+  <tr>
+    <td>{{ invoice.invoice_id }}</td>
+    <td>{{ invoice.customer_id }}</td>
+    <td>€{{ invoice.amount }}</td>
+    <td>{{ invoice.parcel_detail }}</td>
+    <td>{{ invoice.date }}</td>
+    <td>
+      <a href="#">Edit</a> |
+      <a href="#">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No invoices found.</p>
+{% endif %}
+
+<a href="/polls/main/">Back to Main menu</a>
+</body>
+</html>

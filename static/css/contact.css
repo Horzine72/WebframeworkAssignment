@@ -1,0 +1,93 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #f5a623;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            display: flex;
+            align-items: center;
+            height: 150px;
+
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        .header h1, .header p {
+            margin: 0;
+        }
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-right: 50px;
+        }
+        .section {
+            padding: 20px;
+            text-align: center;
+        }
+        .cta-buttons a {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #f5a623;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .cta-buttons a:hover {
+            background-color: #e59421;
+        }
+        footer {
+            background-color: #f5a623;
+            color: black;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: blue;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .nav-logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .content {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+        }
+
+
+
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+

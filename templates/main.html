@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Hyperion Logistics</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+</head>
+<body>
+<!-- Navbar -->
+<nav>
+    <div class="nav-logo">Hyperion Logistics</div>
+    <div class="nav-links">
+        <a href="/polls/main/">Home</a>
+
+        {% if user.is_authenticated %}
+        <a href="/polls/logout/">Log Out</a>
+        {% else %}
+        <a href="/polls/login/">Log In</a>
+        {% endif %}
+
+        <a href="{% url 'view_invoices' %}">Invoices</a>
+        <a href="/polls/tracking/">Tracking</a>
+        <a href="/polls/contact/">Contact Us</a>
+        <a href="/polls/help/">Help</a>
+        {% if user.is_staff or user.is_superuser %}
+        <a href="{% url 'manage_invoices' %}">Manage Invoices</a>
+        {% endif %}
+    </div>
+</nav>
+
+
+
+
+<!-- Header Section -->
+<div class="header">
+    <div>
+        <h1>Welcome to Hyperion Logistics</h1>
+        <p>Efficient, Reliable, On-Time Logistics Solutions</p>
+    </div>
+    <img src="{% static 'images/HyperionGold.png' %}" alt="Hyperion Logo" class="logo">
+</div>
+
+
+<div class="section">
+    <h2>About Us</h2>
+    <p>We provide high quality logistics services, ensuring your goods are delivered safely and on time.</p>
+</div>
+
+
+
+<div class="main-container">
+    {% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}!</h1>
+    <p>You are currently logged in.</p>
+    {% else %}
+    <h1>Welcome to Hyperion Logistics</h1>
+    <p>Please log in or register to access all features.</p>
+    {% endif %}
+
+    {% if user.is_staff or user.is_superuser %}
+    <a href="{% url 'manage_invoices' %}">Manage Invoices</a>
+    {% endif %}
+</div>
+
+<div class="section services">
+    <h2>Our Services</h2>
+    <div>Cargo Handling</div>
+    <div>Inventory Management</div>
+    <div>Delivery Solutions</div>
+</div>
+
+
+
+
+
+
+<footer>
+    <p>&copy; 2025 Hyperion Logistics. All rights reserved.</p>
+</footer>
+</body>
+</html>

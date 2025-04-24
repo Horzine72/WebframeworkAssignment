@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Hyperion Logistics</title>
+    <link rel="stylesheet" href="{% static 'css/invoice.css' %}">
+
+
+
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">Hyperion Logistics</div>
+    <div class="nav-links">
+        <a href="/polls/main/">Home</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+        <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+        <a href="{% url 'view_invoices' %}">Invoices</a>
+        <a href="/polls/tracking/">Tracking</a>
+        <a href="/polls/contact/">Contact Us</a>
+        <a href="/polls/help/">Help</a>
+    </div>
+</nav>
+
+
+
+
+<!-- header Section -->
+<div class="header">
+    <div>
+        <h1>Welcome to Hyperion Logistics</h1>
+        <p>Efficient, Reliable, On-Time Logistics Solutions</p>
+    </div>
+    {% load static %}
+    <img src="{% static 'images/HyperionGold.png' %}" alt="Hyperion Logo" class="logo">
+</div>
+
+
+<h1>Your Invoices</h1>
+{% if invoices %}
+<table>
+    <thead>
+    <tr>
+        <th>Invoice ID</th>
+        <th>Amount</th>
+        <th>Parcel Details</th>
+        <th>Origin Country</th>
+        <th>Delivery Area</th>
+        <th>Date</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for invoice in invoices %}
+    <tr>
+        <td>{{ invoice.invoice_id }}</td>
+        <td>{{ invoice.amount }}</td>
+        <td>{{ invoice.parcel_detail }}</td>
+        <td>{{ invoice.origin_country }}</td>
+        <td>{{ invoice.delivery_area }}</td>
+        <td>{{ invoice.date }}</td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No invoices found.</p>
+{% endif %}
+
+
+
+
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Hyperion Logistics. All rights reserved.</p>
+</footer>
+</body>
+</html>
